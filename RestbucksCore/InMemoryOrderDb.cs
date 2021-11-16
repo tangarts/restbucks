@@ -6,10 +6,6 @@
         static InMemoryOrderDb()
         {
             Database.Add(1, new Order());
-            Database.Add(2, new Order());
-            Database.Add(3, new Order());
-            Database.Add(-4, new Order());
-            Database.Add(-5, new Order());
         }
 
         private static int orderCounter = 1;
