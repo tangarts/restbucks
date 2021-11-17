@@ -6,12 +6,8 @@ using System.Xml.Serialization;
 
 namespace RestbucksCore
 {
-    public enum Location { TakeAway, DrinkIn };
-    public enum Status { Preparing, AwaitingPayment, Served };
 
 
-    [XmlRoot(Namespace = "http://restbucks.com")]
-    [XmlType(TypeName = "order")]
     public class CreateOrderRequest
     {
         //public Order()
@@ -24,16 +20,9 @@ namespace RestbucksCore
         //        new Item { Name = Item.Coffee.cappuccino, DrinkSize = Item.Size.large, MilkType = Item.Milk.skim, Quantity = 1 }
         //    };
         //}
-
-        
-        
-        [XmlElement(ElementName = "location")]
-        [JsonProperty(PropertyName = "location")]
+  
         public Location ConsumeLocation { get; set; }
 
-        // [Required]
-        [XmlElement(ElementName = "items")]
-        [JsonProperty(PropertyName = "items")]
         public List<Item> Items { get; set; }
     }
 }

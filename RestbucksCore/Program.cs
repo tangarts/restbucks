@@ -28,7 +28,8 @@ app.MapFallback(() => Results.Redirect("/swagger"));
 //})
 //.WithName("GetOrders");
 
-app.MapPost("/order",  (InMemoryOrderDb db, CreateOrderRequest order) =>
+// Change to OrderItem
+app.MapPost("/order",  (InMemoryOrderDb db, Order order) =>
 {
     //await db.Orders.AddAsync(order);
     //await db.SaveChangesAsync();

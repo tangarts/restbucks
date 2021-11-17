@@ -2,7 +2,6 @@
 {
     public class InMemoryOrderDb
     {
-
         private static int orderCounter = 0;
 
         private Dictionary<int, Order> data = new Dictionary<int, Order>();
