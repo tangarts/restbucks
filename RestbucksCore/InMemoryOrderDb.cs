@@ -1,4 +1,8 @@
-﻿namespace RestbucksCore
+﻿// <copyright file="InMemoryOrderDb.cs" company="Endjin Limited">
+// Copyright (c) Endjin Limited. All rights reserved.
+// </copyright>
+
+namespace RestbucksCore
 {
     public class InMemoryOrderDb
     {
@@ -9,15 +13,14 @@
         public int Save(Order order)
         {
             int id = orderCounter;
-            Save(id, order);
+            this.Save(id, order);
             orderCounter++;
             return id;
         }
 
         public void Save(int id, Order order) => this.data.Add(id, order);
-        public void Update(int id, Order order) => this.data[id] = order; 
-        public void Save() { return; }
 
+        public void Update(int id, Order order) => this.data[id] = order;
 
         public bool Exists(int id) => this.data.ContainsKey(id);
 

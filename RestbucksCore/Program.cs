@@ -1,4 +1,7 @@
-using Microsoft.EntityFrameworkCore;
+// <copyright file="Program.cs" company="Endjin Limited">
+// Copyright (c) Endjin Limited. All rights reserved.
+// </copyright>
+
 using RestbucksCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -20,7 +23,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.MapFallback(() => Results.Redirect("/swagger"));
+// app.MapFallback(() => Results.Redirect("/swagger"));
 
 //app.MapGet("/order/", async (InMemoryOrderDb db) =>
 //{
@@ -86,7 +89,6 @@ app.MapDelete("/order/{id:int}", (InMemoryOrderDb db, int id) =>
         // db.Orders.Remove(order);
         // await db.SaveChangesAsync();
         db.Delete(id);
-        db.Save();
         return Results.Ok();
     }
 

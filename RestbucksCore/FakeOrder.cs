@@ -1,4 +1,8 @@
-﻿using Bogus;
+﻿// <copyright file="FakeOrder.cs" company="Endjin Limited">
+// Copyright (c) Endjin Limited. All rights reserved.
+// </copyright>
+
+using Bogus;
 
 namespace RestbucksCore
 {
@@ -24,11 +28,11 @@ namespace RestbucksCore
                    .RuleFor(i => i.Id, f => (-1 - f.IndexGlobal))
                    .RuleFor(i => i.ConsumeLocation, f => f.PickRandom<Location>())
                    .RuleFor(i => i.OrderStatus, f => f.PickRandom<Status>())
-                   .RuleFor(i => i.Items, 
+                   .RuleFor(i => i.Items,
                             FakeItem()
                             .Generate(numberOfOrderItems)
                             .ToList());
-                   
+
             return order;
         }
 
