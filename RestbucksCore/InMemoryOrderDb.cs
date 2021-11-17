@@ -1,16 +1,11 @@
 ﻿namespace RestbucksCore
 {
-    public class InMemoryOrderDb : Dictionary<int, Order>
+    public class InMemoryOrderDb
     {
-        // For testing only!
-        static InMemoryOrderDb()
-        {
-            Database.Add(1, new Order());
-        }
 
-        private static int orderCounter = 1;
+        private static int orderCounter = 0;
 
-        public static InMemoryOrderDb Database { get; } = new InMemoryOrderDb();
+        private Dictionary<int, Order> data = new Dictionary<int, Order>();
 
         public int Save(Order order)
         {
@@ -20,24 +15,24 @@
             return id;
         }
 
-        public void Save(int id, Order order) => this.Add(id, order);
-        public void Update(int id, Order order) => this[id] = order; 
+        public void Save(int id, Order order) => this.data.Add(id, order);
+        public void Update(int id, Order order) => this.data[id] = order; 
         public void Save() { return; }
 
 
-        public bool Exists(int id) => this.ContainsKey(id);
+        public bool Exists(int id) => this.data.ContainsKey(id);
 
         public Order? GetOrder(int id)
         {
-            if (this.ContainsKey(id))
+            if (this.data.ContainsKey(id))
             {
-                return this[id];
+                return this.data[id];
             }
 
             return null;
         }
 
         // todo check if in db
-        public bool Delete(int id) => this.Remove(id);
+        public bool Delete(int id) => this.data.Remove(id);
     }
 }
