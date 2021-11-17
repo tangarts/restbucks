@@ -8,6 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<OrderDbContext>(opt => opt.UseInMemoryDatabase("Order"));
+builder.Services.AddSingleton<InMemoryOrderDb>();
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 var app = builder.Build();
@@ -74,7 +75,7 @@ app.MapDelete("/order/{id:int}", async (OrderDbContext db, int id) =>
         return Results.NotFound();
     }
 
-    if (order.OrderStatus == Order.Status.Served) // orderStatus == Ordered
+    if (order.OrderStatus == Status.Served) // orderStatus == Ordered
     {
         db.Orders.Remove(order);
         await db.SaveChangesAsync();
@@ -84,8 +85,5 @@ app.MapDelete("/order/{id:int}", async (OrderDbContext db, int id) =>
     return Results.Conflict(); // 409
 
 });
-
-
-
 
 app.Run();

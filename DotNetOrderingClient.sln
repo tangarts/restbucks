@@ -5,7 +5,9 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetOrderingClient", "DotNetOrderingClient\DotNetOrderingClient.csproj", "{A02ED3FF-EF8E-4869-BAFB-C1DE48247C8D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestbucksCore", "RestbucksCore\RestbucksCore.csproj", "{F8376641-3BEB-46C8-B134-8682DEE13AA0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RestbucksCore", "RestbucksCore\RestbucksCore.csproj", "{F8376641-3BEB-46C8-B134-8682DEE13AA0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp", "ConsoleApp\ConsoleApp.csproj", "{5E6AD2CA-6C50-4ECA-BABC-14186B0227DA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{F8376641-3BEB-46C8-B134-8682DEE13AA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F8376641-3BEB-46C8-B134-8682DEE13AA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F8376641-3BEB-46C8-B134-8682DEE13AA0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E6AD2CA-6C50-4ECA-BABC-14186B0227DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E6AD2CA-6C50-4ECA-BABC-14186B0227DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E6AD2CA-6C50-4ECA-BABC-14186B0227DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E6AD2CA-6C50-4ECA-BABC-14186B0227DA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

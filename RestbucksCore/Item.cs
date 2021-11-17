@@ -3,12 +3,11 @@ using Newtonsoft.Json;
 
 namespace RestbucksCore
 {
+    public enum Coffee { latte, cappuccino, espresso };
+    public enum Milk { skim, semi, whole };
+    public enum Size { small, medium, large };
     public class Item
     {
-
-        public enum Coffee { latte, cappuccino, espresso };
-        public enum Milk { skim, semi, whole };
-        public enum Size { small, medium, large };
 
         // public Item() { }
 
@@ -20,6 +19,7 @@ namespace RestbucksCore
         //    this.DrinkSize = size;
         //}
 
+        [JsonProperty(PropertyName = "id")]
         public int Id { get; set; }
 
         [JsonProperty(PropertyName = "name")]
@@ -28,7 +28,7 @@ namespace RestbucksCore
         public int Quantity { get; set; }
         [JsonProperty(PropertyName = "milkType")]
         public Milk MilkType { get; set; }
-        [JsonProperty(PropertyName = "drikSize")]
+        [JsonProperty(PropertyName = "drinkSize")]
         public Size DrinkSize { get; set; }
     }
 }
