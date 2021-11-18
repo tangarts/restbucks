@@ -14,6 +14,6 @@ namespace RestbucksCore
 
         public List<Item> Items { get; set; } = new List<Item>();
 
-        public Status OrderStatus { get; set; } 
+        public Status OrderStatus { get; set; }
     }
 }

@@ -1,0 +1,39 @@
+﻿StateMachine
+  UriTemplate http://localhost:9090/order/{id}
+  Class Restbucks.OrderingService
+  MediaType application/vnd.restbucks+xml
+  RelationsIn http://relations.restbucks.com
+
+State OrderCreated
+   POST NewOrder 201 => Unpaid
+     When NotValidOrder 400
+End
+
+State Unpaid
+   GET GetOrderStatus 200
+     When NoSuchOrder 404
+   POST UpdateOrder 200
+   DELETE CancelOrder 200 => Cancelled
+   Links
+     latest
+     update
+     payment http://localhost:9090/payment/{id}
+     cancel
+End
+
+State Preparing
+   GET GetOrderStatus 200
+   Links
+     latest
+End
+
+State Ready
+   GET GetOrderStatus 200
+   DELETE ReceiveOrder 200 => Delivered
+   Links
+     latest
+     receive
+End
+
+Final State Delivered End
+Final State Cancelled End

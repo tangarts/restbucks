@@ -6,15 +6,6 @@ namespace RestbucksCore
 {
     public class Item
     {
-        // public Item() { }
-
-        // public Item(Coffee name, int quantity, Milk milk, Size size)
-        // {
-        //    this.Name = name;
-        //    this.Quantity = quantity;
-        //    this.MilkType = milk;
-        //    this.DrinkSize = size;
-        // }
         public int Id { get; set; }
 
         public Coffee Name { get; set; }

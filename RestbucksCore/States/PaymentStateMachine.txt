@@ -1,0 +1,24 @@
+﻿StateMachine
+  UriTemplate http://localhost:9090/payment/{id}
+  Class Restbucks.OrderingService
+  MediaType application/vnd.restbucks+xml
+  RelationsIn http://relations.restbucks.com
+
+State PaymentCreated
+   => PaymentExpected
+End
+
+State PaymentExpected
+   PUT PaymentReceived 201 => PaymentReceived
+     When NoValidPayment 400
+   Links
+     payment
+End
+
+Final State PaymentReceived
+   GET GetReceipt 200
+	When NoSuchPayment 404
+   Links
+     order http://localhost:9090/order/{id}
+	 receipt
+End
