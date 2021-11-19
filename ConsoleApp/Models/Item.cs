@@ -6,8 +6,6 @@ namespace RestbucksCore
 {
     public class Item
     {
-        public int Id { get; set; }
-
         public Coffee Name { get; set; }
 
         public int Quantity { get; set; }

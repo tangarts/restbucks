@@ -11,7 +11,6 @@ namespace RestbucksCore
         public static Faker<Item> FakeItem()
         {
             var items = new Faker<Item>()
-                .RuleFor(i => i.Id, f => (-1 - f.IndexGlobal))
                 .RuleFor(i => i.Name, f => f.PickRandom<Coffee>())
                 .RuleFor(i => i.Quantity, f => f.Random.Int(1, 5))
                 .RuleFor(i => i.MilkType, f => f.PickRandom<Milk>())
@@ -35,7 +34,5 @@ namespace RestbucksCore
 
             return order;
         }
-
-
     }
 }

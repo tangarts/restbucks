@@ -4,7 +4,7 @@
 
 namespace RestbucksCore
 {
-    public class InMemoryOrderDb
+    public class InMemoryOrderDb : IDatabase
     {
         private static int orderCounter = 0;
 
@@ -37,7 +37,7 @@ namespace RestbucksCore
 
         public bool Delete(int id) => this.orders.Remove(id);
 
-        public  void PutPayment(int id, Payment payment)
+        public void PutPayment(int id, Payment payment)
         {
             this.payments.Add(id, payment);
         }
