@@ -2,7 +2,7 @@
 // Copyright (c) Endjin Limited. All rights reserved.
 // </copyright>
 
-namespace RestbucksCore
+namespace Restbucks.Core.Models
 {
     public enum Size
     {

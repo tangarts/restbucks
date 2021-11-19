@@ -1,7 +1,8 @@
-﻿namespace RestbucksCore
+﻿namespace Restbucks.Core
 {
     using System.Threading.Tasks;
     using Microsoft.EntityFrameworkCore;
+    using Restbucks.Core.Models;
 
     public class EFOrderDb : IDatabase
     {

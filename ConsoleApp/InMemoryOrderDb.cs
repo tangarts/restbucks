@@ -2,8 +2,10 @@
 // Copyright (c) Endjin Limited. All rights reserved.
 // </copyright>
 
-namespace RestbucksCore
+namespace Restbucks.Core
 {
+    using Restbucks.Core.Models;
+
     public class InMemoryOrderDb : IDatabase
     {
         private static int orderCounter = 0;

@@ -2,8 +2,10 @@
 // Copyright (c) Endjin Limited. All rights reserved.
 // </copyright>
 
-namespace RestbucksCore
+namespace Restbucks.Core
 {
+    using Restbucks.Core.Models;
+
     public interface IDatabase
     {
         public Order CreateOrder(Order order);

@@ -2,9 +2,10 @@
 // Copyright (c) Endjin Limited. All rights reserved.
 // </copyright>
 
-namespace RestbucksCore
+namespace Restbucks.Core
 {
     using Microsoft.EntityFrameworkCore;
+    using Restbucks.Core.Models;
 
     public class OrderDbContext : DbContext
     {

@@ -1,7 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
 using Newtonsoft.Json;
-using RestbucksCore;
+using Restbucks.Core;
 
 Func<object, string> dump = (object obj) => JsonConvert.SerializeObject(obj, Formatting.Indented);
 //var fakeItem = FakeOrder.FakeItem();

@@ -3,8 +3,9 @@
 // </copyright>
 
 using Bogus;
+using Restbucks.Core.Models;
 
-namespace RestbucksCore
+namespace Restbucks.Core
 {
     public static class FakeOrder
     {

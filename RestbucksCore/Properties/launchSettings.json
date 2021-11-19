@@ -9,7 +9,7 @@
     }
   },
   "profiles": {
-    "RestbucksCore": {
+    "Restbucks.Core": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,
