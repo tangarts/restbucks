@@ -27,7 +27,7 @@ if (app.Environment.IsDevelopment())
 
 app.MapPost("/order",  (InMemoryOrderDb db, Order order) =>
 {
-    db.Save(order);
+    db.CreateOrder(order);
     return Results.Created($"/order/{order.Id}", order);
 });
 
@@ -52,7 +52,7 @@ app.MapPut("/order/{id:int}", (InMemoryOrderDb db, int id, Order order) =>
         return Results.NotFound();
     }
 
-    db.Update(id, order);
+    db.UpdateOrder(order);
     return Results.Ok();
 });
 
@@ -67,7 +67,7 @@ app.MapDelete("/order/{id:int}", (InMemoryOrderDb db, int id) =>
 
     if (order.OrderStatus == Status.Served) // orderStatus == Ordered
     {
-        db.Delete(id);
+        db.DeleteOrder(id);
         return Results.Ok();
     }
 

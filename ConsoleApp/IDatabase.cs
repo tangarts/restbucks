@@ -6,13 +6,13 @@ namespace RestbucksCore
 {
     public interface IDatabase
     {
-        public int Save(Order order);
+        public Order CreateOrder(Order order);
 
-        public void Update(int id, Order order);
+        public void UpdateOrder(Order order);
 
         public bool Exists(int id);
 
-        public bool Delete(int id);
+        public bool DeleteOrder(int id);
 
         public Order? GetOrder(int id);
 

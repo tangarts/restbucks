@@ -12,7 +12,7 @@
             this.context = context;
         }
 
-        public bool Delete(int id)
+        public bool DeleteOrder(int id)
         {
             Order? order = this.context.Orders.FirstOrDefault(o => o.Id == id);
             this.context.Orders.Remove(order);
@@ -32,14 +32,14 @@
             return order;
         }
 
-        public int Save(Order order)
+        public Order CreateOrder(Order order)
         {
             this.context.Orders.Add(order);
-            int stateEntries = this.context.SaveChanges();
-            return -1;
+            this.context.SaveChanges();
+            return order;
         }
 
-        public void Update(int id, Order order)
+        public void UpdateOrder(Order order)
         {
             this.context.Update(order);
             this.context.SaveChanges();
