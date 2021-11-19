@@ -75,4 +75,4 @@ app.MapDelete("/order/{id:int}", (InMemoryOrderDb db, int id) =>
     return Results.Conflict(); // 409
 });
 
-app.Run();
+app.Run("http://localhost:9090/");

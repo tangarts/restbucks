@@ -1,4 +1,5 @@
-using RestbucksCore;
+using Restbucks.Core;
+using Restbucks.Core.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
