@@ -19,9 +19,9 @@ if (app.Environment.IsDevelopment())
 }
 
 
-app.MapPost("/order", (InMemoryOrderDb db, Order order) =>
+app.MapPost("/order", (InMemoryOrderDb db, OrderDto orderDto) =>
 {
-    db.CreateOrder(order);
+    Order order = db.CreateOrder(orderDto);
     return Results.Created($"/order/{order.Id}", order);
 });
 
@@ -68,4 +68,4 @@ app.MapDelete("/order/{id:int}", (InMemoryOrderDb db, int id) =>
     return Results.Conflict(); // 409
 });
 
-app.Run();
+app.Run("http://localhost:9080/");

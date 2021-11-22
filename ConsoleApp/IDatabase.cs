@@ -8,7 +8,7 @@ namespace Restbucks.Core
 
     public interface IDatabase
     {
-        public Order CreateOrder(Order order);
+        public Order CreateOrder(OrderDto order);
 
         public void UpdateOrder(Order order);
 

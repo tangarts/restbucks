@@ -26,11 +26,12 @@ if (app.Environment.IsDevelopment())
 
 // app.MapFallback(() => Results.Redirect("/swagger"));
 
-app.MapPost("/order",  (InMemoryOrderDb db, Order order) =>
+app.MapPost("/order", (InMemoryOrderDb db, OrderDto order) =>
 {
-    db.CreateOrder(order);
-    return Results.Created($"/order/{order.Id}", order);
-});
+   db.CreateOrder(order);
+   return Results.Created($"/order/{order.Id}", order);
+})
+.WithName("NewOrder");
 
 app.MapGet("/order/{id:int}", (InMemoryOrderDb db, int id) =>
 {

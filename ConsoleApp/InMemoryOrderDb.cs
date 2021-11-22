@@ -13,11 +13,16 @@ namespace Restbucks.Core
         private Dictionary<int, Order> orders = new ();
         private Dictionary<int, Payment> payments = new ();
 
-        public Order CreateOrder(Order order)
+        public Order CreateOrder(OrderDto orderDto)
         {
-            int id = orderCounter;
-            this.orders.Add(id, order);
-            orderCounter++;
+            var order = new Order
+            {
+                Id = ++orderCounter,
+                Items = orderDto.Items,
+                ConsumeLocation = orderDto.ConsumeLocation,
+                OrderStatus = Status.Unpaid,
+            };
+            this.orders.Add(order.Id, order);
             return order;
         }
 
@@ -31,6 +36,7 @@ namespace Restbucks.Core
             {
                 return this.orders[id];
             }
+
             return null;
         }
 
