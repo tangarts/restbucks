@@ -16,18 +16,4 @@ namespace Restbucks.Core.Models
 
         public Status OrderStatus { get; set; }
     }
-
-    public class OrderDto
-    {
-        public OrderDto() { }
-
-        public OrderDto(Order order) =>
-            (Id, ConsumeLocation, Items) = (order.Id, order.ConsumeLocation, order.Items);
-
-        public int Id { get; set; }
-
-        public Location ConsumeLocation { get; set; }
-
-        public List<Item> Items { get; set; } = new List<Item>();
-    }
 }

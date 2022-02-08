@@ -6,9 +6,9 @@ namespace Restbucks.Core
 {
     using Restbucks.Core.Models;
 
-    public interface IDatabase
+    public interface IOrderRepository
     {
-        public Order CreateOrder(OrderDto order);
+        public Order CreateOrder(Order order);
 
         public void UpdateOrder(Order order);
 

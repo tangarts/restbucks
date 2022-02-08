@@ -6,22 +6,16 @@ namespace Restbucks.Core
 {
     using Restbucks.Core.Models;
 
-    public class InMemoryOrderDb : IDatabase
+    public class InMemoryOrderDb : IOrderRepository
     {
         private static int orderCounter = 0;
 
         private Dictionary<int, Order> orders = new ();
         private Dictionary<int, Payment> payments = new ();
 
-        public Order CreateOrder(OrderDto orderDto)
+        public Order CreateOrder(Order order)
         {
-            var order = new Order
-            {
-                Id = ++orderCounter,
-                Items = orderDto.Items,
-                ConsumeLocation = orderDto.ConsumeLocation,
-                OrderStatus = Status.Unpaid,
-            };
+            int orderId = orders.Values.Max(o => o.Id) + 1;
             this.orders.Add(order.Id, order);
             return order;
         }

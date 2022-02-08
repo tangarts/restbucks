@@ -4,11 +4,11 @@
     using Microsoft.EntityFrameworkCore;
     using Restbucks.Core.Models;
 
-    public class EFOrderDb : IDatabase
+    public class EFOrderDb : IOrderRepository
     {
-        private readonly OrderDbContext context;
+        private readonly AppDbContext context;
 
-        public EFOrderDb(OrderDbContext context)
+        public EFOrderDb(AppDbContext context)
         {
             this.context = context;
         }
@@ -29,8 +29,7 @@
 
         public Order? GetOrder(int id)
         {
-            Order? order = this.context.Orders.Find(id);
-            return order;
+            return this.context.Orders.Find(id);
         }
 
         public Order CreateOrder(Order order)

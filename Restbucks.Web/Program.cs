@@ -4,6 +4,7 @@
 
 using Restbucks.Core;
 using Restbucks.Core.Models;
+using Restbucks.Web;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,8 +12,8 @@ var builder = WebApplication.CreateBuilder(args);
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-// builder.Services.AddDbContext<OrderDbContext>(opt => opt.UseInMemoryDatabase("Order"));
-builder.Services.AddSingleton<InMemoryOrderDb>();
+// builder.Services.AddDbContext<AppDbContext>(opt => opt.UseInMemoryDatabase("Order"));
+builder.Services.AddSingleton<IOrderRepository, InMemoryOrderDb>();
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 WebApplication? app = builder.Build();
@@ -26,23 +27,24 @@ if (app.Environment.IsDevelopment())
 
 // app.MapFallback(() => Results.Redirect("/swagger"));
 
-app.MapPost("/order", (InMemoryOrderDb db, OrderDto order) =>
+app.MapPost("/order", (IOrderRepository db, OrderDTO order) =>
 {
    db.CreateOrder(order);
    return Results.Created($"/order/{order.Id}", order);
 })
-.WithName("NewOrder");
+.WithName("new_order");
 
-app.MapGet("/order/{id:int}", (InMemoryOrderDb db, int id) =>
+app.MapGet("/order/{id:int}", (IOrderRepository db, int id) =>
 {
     return db.GetOrder(id) switch
    {
        Order order => Results.Ok(order),
        null => Results.NotFound()
    };
-});
+})
+.WithName("get_order");
 
-app.MapPut("/order/{id:int}", (InMemoryOrderDb db, int id, Order order) =>
+app.MapPut("/order/{id:int}", (IOrderRepository db, int id, Order order) =>
 {
     if (id != order.Id)
     {
@@ -56,9 +58,10 @@ app.MapPut("/order/{id:int}", (InMemoryOrderDb db, int id, Order order) =>
 
     db.UpdateOrder(order);
     return Results.Ok();
-});
+})
+.WithName("update_order");
 
-app.MapDelete("/order/{id:int}", (InMemoryOrderDb db, int id) =>
+app.MapDelete("/order/{id:int}", (IOrderRepository db, int id) =>
 {
     Order? order = db.GetOrder(id);
 
@@ -74,6 +77,7 @@ app.MapDelete("/order/{id:int}", (InMemoryOrderDb db, int id) =>
     }
 
     return Results.Conflict(); // 409
-});
+})
+.WithName("delete_order");
 
 app.Run("http://localhost:9090/");
