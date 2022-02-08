@@ -3,11 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Restbucks.Hypermedia", "RestbucksCore\Restbucks.Hypermedia.csproj", "{F8376641-3BEB-46C8-B134-8682DEE13AA0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Restbucks.Web", "Restbucks.Web\Restbucks.Web.csproj", "{F8376641-3BEB-46C8-B134-8682DEE13AA0}"
+	ProjectSection(ProjectDependencies) = postProject
+		{F136E79C-8796-43A2-B058-C51A144382C4} = {F136E79C-8796-43A2-B058-C51A144382C4}
+		{5E6AD2CA-6C50-4ECA-BABC-14186B0227DA} = {5E6AD2CA-6C50-4ECA-BABC-14186B0227DA}
+	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Restbucks.Core", "ConsoleApp\Restbucks.Core.csproj", "{5E6AD2CA-6C50-4ECA-BABC-14186B0227DA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Restbucks.Core", "Restbucks.Core\Restbucks.Core.csproj", "{5E6AD2CA-6C50-4ECA-BABC-14186B0227DA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Restbucks.Crud", "Restbucks.Crud\Restbucks.Crud.csproj", "{AB3E7C30-49F2-40E7-A92F-2A907C08F1E3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Restbucks.Infrastructure", "Restbucks.Infrastructure\Restbucks.Infrastructure.csproj", "{F136E79C-8796-43A2-B058-C51A144382C4}"
 	ProjectSection(ProjectDependencies) = postProject
 		{5E6AD2CA-6C50-4ECA-BABC-14186B0227DA} = {5E6AD2CA-6C50-4ECA-BABC-14186B0227DA}
 	EndProjectSection
@@ -26,10 +30,10 @@ Global
 		{5E6AD2CA-6C50-4ECA-BABC-14186B0227DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5E6AD2CA-6C50-4ECA-BABC-14186B0227DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5E6AD2CA-6C50-4ECA-BABC-14186B0227DA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AB3E7C30-49F2-40E7-A92F-2A907C08F1E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AB3E7C30-49F2-40E7-A92F-2A907C08F1E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AB3E7C30-49F2-40E7-A92F-2A907C08F1E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AB3E7C30-49F2-40E7-A92F-2A907C08F1E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F136E79C-8796-43A2-B058-C51A144382C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F136E79C-8796-43A2-B058-C51A144382C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F136E79C-8796-43A2-B058-C51A144382C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F136E79C-8796-43A2-B058-C51A144382C4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

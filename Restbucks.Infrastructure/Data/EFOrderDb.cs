@@ -16,6 +16,10 @@
         public bool DeleteOrder(int id)
         {
             Order? order = this.context.Orders.FirstOrDefault(o => o.Id == id);
+            if (order == null)
+            {
+                return false;
+            }
             this.context.Orders.Remove(order);
             // is this right?
             int stateEntries = this.context.SaveChanges();

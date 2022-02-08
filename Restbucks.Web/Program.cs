@@ -27,7 +27,7 @@ if (app.Environment.IsDevelopment())
 
 // app.MapFallback(() => Results.Redirect("/swagger"));
 
-app.MapPost("/order", (IOrderRepository db, OrderDTO order) =>
+app.MapPost("/order", (IOrderRepository db, Order order) =>
 {
    db.CreateOrder(order);
    return Results.Created($"/order/{order.Id}", order);

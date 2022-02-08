@@ -20,7 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ConsoleApp\Restbucks.Core.csproj" />
+    <ProjectReference Include="..\Restbucks.Core\Restbucks.Core.csproj" />
   </ItemGroup>
 
 </Project>

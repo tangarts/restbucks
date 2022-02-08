@@ -1,10 +1,9 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <AppDesignerFolder>Data</AppDesignerFolder>
   </PropertyGroup>
 
   <ItemGroup>
@@ -19,7 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ConsoleApp\Restbucks.Core.csproj" />
+    <ProjectReference Include="..\Restbucks.Core\Restbucks.Core.csproj" />
   </ItemGroup>
 
 </Project>
